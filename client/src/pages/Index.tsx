@@ -23,10 +23,10 @@ const Index = () => {
   
   // Show welcome toast on first load
   useEffect(() => {
-    toast({
-      title: "Welcome to Soundwave",
-      description: "Search for your favorite music or explore our recommendations.",
-    });
+    // toast({
+    //   title: "Welcome to Soundwave",
+    //   description: "Search for your favorite music or explore our recommendations.",
+    // });
   }, []);
   
   return (
@@ -36,7 +36,7 @@ const Index = () => {
         <div className="container px-4 py-4 mx-auto flex items-center justify-between">
           <div className="flex items-center">
             <h1 className="text-2xl font-bold text-white mr-8">
-              Soundwave
+              Hydex Tunes
             </h1>
           </div>
           
@@ -56,7 +56,7 @@ const Index = () => {
         {/* Welcome section */}
         <section className="mb-10">
           <h1 className="text-4xl font-bold text-white mb-4 animate-fade-in">
-            Welcome to Soundwave
+            Welcome to Hydex Tunes
           </h1>
           <p className="text-lg text-spotify-gray animate-fade-in">
             Discover and enjoy music from around the world

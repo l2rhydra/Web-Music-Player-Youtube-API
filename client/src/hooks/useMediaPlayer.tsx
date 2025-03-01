@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect, useCallback } from 'react';
 import { PlayerState, Track } from '@/types';
 import { useToast } from "@/hooks/use-toast";
+import axios from 'axios';
 
 const useMediaPlayer = () => {
   const [playerState, setPlayerState] = useState<PlayerState>({
@@ -38,39 +39,45 @@ const useMediaPlayer = () => {
       }
     };
   }, []);
+
+
   
   // Handle track changes
   useEffect(() => {
-    if (playerState.currentTrack && audioRef.current) {
-      // In a real implementation, we would use the YouTube API to get the audio stream
-      // For demo purposes, we're using a placeholder URL
-      const audioUrl = `https://www.youtube.com/watch?v=${playerState.currentTrack.videoId}`;
-      
-      // In a real app, we would use a library like youtube-audio-stream or yt-dlp
-      // audioRef.current.src = audioUrl;
-      
-      // For demo, we'll simulate playing audio
-      audioRef.current.src = 'https://actions.google.com/sounds/v1/alarms/digital_watch_alarm_long.ogg';
-      
-      if (playerState.isPlaying) {
-        const playPromise = audioRef.current.play();
-        
-        // Handle autoplay restrictions
-        if (playPromise !== undefined) {
-          playPromise.catch((error) => {
-            console.error('Playback prevented:', error);
-            setPlayerState(prev => ({ ...prev, isPlaying: false }));
-            
-            toast({
-              title: "Playback Error",
-              description: "Please interact with the page to enable audio playback.",
-              variant: "destructive"
-            });
-          });
+    const fetchAudioUrl = async () => {
+      if (playerState.currentTrack && audioRef.current) {
+        try {
+          const response = await axios.post('http://localhost:5000/api/stream', { url: playerState.currentTrack.videoId });
+          const audioUrl = response.data.audioUrl;
+          
+          audioRef.current.src = audioUrl;
+  
+          if (playerState.isPlaying) {
+            const playPromise = audioRef.current.play();
+  
+            // Handle autoplay restrictions
+            if (playPromise !== undefined) {
+              playPromise.catch((error) => {
+                console.error('Playback prevented:', error);
+                setPlayerState(prev => ({ ...prev, isPlaying: false }));
+  
+                toast({
+                  title: "Playback Error",
+                  description: "Please interact with the page to enable audio playback.",
+                  variant: "destructive"
+                });
+              });
+            }
+          }
+        } catch (error) {
+          console.error("Error fetching audio URL:", error);
         }
       }
-    }
-  }, [playerState.currentTrack]);
+    };
+  
+    fetchAudioUrl();
+  }, [playerState.currentTrack]); // Runs when track changes
+  
   
   // Handle play/pause changes
   useEffect(() => {
@@ -142,10 +149,10 @@ const useMediaPlayer = () => {
       };
     });
     
-    toast({
-      title: "Now Playing",
-      description: `${track.title} by ${track.artist}`,
-    });
+    // toast({
+    //   title: "Now Playing",
+    //   description: `${track.title} by ${track.artist}`,
+    // });
   }, []);
   
   // Toggle play/pause
@@ -188,10 +195,10 @@ const useMediaPlayer = () => {
       queue: [...prev.queue, track]
     }));
     
-    toast({
-      title: "Added to Queue",
-      description: `${track.title} by ${track.artist}`,
-    });
+    // toast({
+    //   title: "Added to Queue",
+    //   description: `${track.title} by ${track.artist}`,
+    // });
   }, []);
   
   // Play next track

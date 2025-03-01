@@ -3,30 +3,30 @@ export const YOUTUBE_API_KEY = "AIzaSyC6DeRgwA_u-QWK12cFM90L5LDh34NUfPc"; // Rep
 export const YOUTUBE_API_BASE_URL = "https://www.googleapis.com/youtube/v3";
 
 export const FEATURED_PLAYLISTS = [
-  {
-    id: "1",
-    name: "Today's Top Hits",
-    description: "The most popular tracks right now",
-    imageUrl: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?q=80&w=2070&auto=format&fit=crop",
-  },
-  {
-    id: "2",
-    name: "Chill Vibes",
-    description: "Relaxing tracks to unwind",
-    imageUrl: "https://images.unsplash.com/photo-1483412033650-1015ddeb83d1?q=80&w=2073&auto=format&fit=crop",
-  },
-  {
-    id: "3",
-    name: "Workout Mix",
-    description: "Energetic tracks to keep you going",
-    imageUrl: "https://images.unsplash.com/photo-1574680096145-d05b474e2155?q=80&w=2069&auto=format&fit=crop",
-  },
-  {
-    id: "4",
-    name: "Focus",
-    description: "Music to help you concentrate",
-    imageUrl: "https://images.unsplash.com/photo-1511379938547-c1f69419868d?q=80&w=2070&auto=format&fit=crop",
-  },
+  // {
+  //   id: "1",
+  //   name: "Today's Top Hits",
+  //   description: "The most popular tracks right now",
+  //   imageUrl: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?q=80&w=2070&auto=format&fit=crop",
+  // },
+  // {
+  //   id: "2",
+  //   name: "Chill Vibes",
+  //   description: "Relaxing tracks to unwind",
+  //   imageUrl: "https://images.unsplash.com/photo-1483412033650-1015ddeb83d1?q=80&w=2073&auto=format&fit=crop",
+  // },
+  // {
+  //   id: "3",
+  //   name: "Workout Mix",
+  //   description: "Energetic tracks to keep you going",
+  //   imageUrl: "https://images.unsplash.com/photo-1574680096145-d05b474e2155?q=80&w=2069&auto=format&fit=crop",
+  // },
+  // {
+  //   id: "4",
+  //   name: "Focus",
+  //   description: "Music to help you concentrate",
+  //   imageUrl: "https://images.unsplash.com/photo-1511379938547-c1f69419868d?q=80&w=2070&auto=format&fit=crop",
+  // },
 ];
 
 export const SAMPLE_TRACKS = [

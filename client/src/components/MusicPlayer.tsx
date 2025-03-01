@@ -195,7 +195,7 @@ const MusicPlayer: React.FC<MusicPlayerProps> = ({
             <span className="text-xs text-spotify-gray w-10 text-right">{currentTime}</span>
             <div 
               className="h-1 bg-gray-600 rounded-full flex-1 cursor-pointer"
-              onClick={handleProgressClick}
+              
             >
               <div 
                 className="h-full bg-spotify-accent rounded-full relative"
