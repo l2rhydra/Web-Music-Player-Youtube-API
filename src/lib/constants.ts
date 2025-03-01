@@ -1,5 +1,5 @@
 
-export const YOUTUBE_API_KEY = "YOUR_YOUTUBE_API_KEY"; // Replace with your actual API key
+export const YOUTUBE_API_KEY = "AIzaSyC6DeRgwA_u-QWK12cFM90L5LDh34NUfPc"; // Replace with your actual API key
 export const YOUTUBE_API_BASE_URL = "https://www.googleapis.com/youtube/v3";
 
 export const FEATURED_PLAYLISTS = [
