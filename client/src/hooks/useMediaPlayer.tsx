@@ -54,7 +54,7 @@ const useMediaPlayer = () => {
   
           if (playerState.isPlaying) {
             const playPromise = audioRef.current.play();
-  
+            audioRef.current.currentTime = 0;
             // Handle autoplay restrictions
             if (playPromise !== undefined) {
               playPromise.catch((error) => {
@@ -135,6 +135,11 @@ const useMediaPlayer = () => {
   
   // Play a track
   const playTrack = useCallback((track: Track) => {
+    if (audioRef.current.src !== '') {
+      audioRef.current = null;
+    }
+    audioRef.current = new Audio();
+    
     setPlayerState(prev => {
       // If there's a current track, add it to history
       const newHistory = prev.currentTrack 
