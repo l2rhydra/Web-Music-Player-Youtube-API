@@ -30,13 +30,13 @@ const FeaturedMusic: React.FC<FeaturedMusicProps> = ({
           {FEATURED_PLAYLISTS.map((playlist) => (
             <div 
               key={playlist.id} 
-              className="bg-spotify-secondary bg-opacity-60 p-4 rounded-lg transition-all duration-300 hover:bg-opacity-80"
+              className="bg-spotify-secondary bg-opacity-60 p-4 rounded-lg transition-all duration-300 hover:bg-opacity-80 hover:shadow-lg"
             >
-              <div className="aspect-square overflow-hidden rounded-md mb-3">
+              <div className="aspect-square overflow-hidden rounded-md mb-3 shadow-md">
                 <img 
                   src={playlist.imageUrl} 
                   alt={playlist.name} 
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
                 />
               </div>
               <h3 className="font-medium text-white">{playlist.name}</h3>

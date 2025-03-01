@@ -153,7 +153,7 @@ const mockSearchResults: SearchResult[] = [
     id: '6',
     title: 'Shape of You',
     artist: 'Ed Sheeran',
-    thumbnailUrl: 'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?q=80&w=2070&auto=format&fit=crop',
+    thumbnailUrl: 'https://images.unsplash.com/photo-1470225620780-dba8ba36b745?q=80&w=2070&auto=format&fit=crop',
     videoId: 'JGwWNGJdvx8',
     duration: '3:54'
   },
